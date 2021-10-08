@@ -1,0 +1,30 @@
+User Interactions
+
+[ ] two inputs for two different values
+[ ] selector for mathematical
+    [ ] Addition
+    [ ] Subtraction
+    [ ] Multiplication
+    [ ] Division
+[ ] submit || '=' button
+[ ] 'C' btn to clear input fields
+
+Server Side
+
+[ ] keep historical math operations 
+[ ] display history on DOM using GET 
+[ ] update list with POST/GET
+[ ] Build server 
+    [ ] create app.get and app.post
+    [ ] create module folder to hold info
+    [ ] test with postman
+
+**STRETCH**
+
+[ ] css -> look like a real calculator
+[ ] don't allow empty inputs
+[ ] make a delete request button
+    [ ] check out app.delete
+[ ] click previous entry to re-run data
+[ ] deploy to Heroku 
+
