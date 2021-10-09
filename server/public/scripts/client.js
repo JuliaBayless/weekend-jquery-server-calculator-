@@ -14,10 +14,11 @@ function getServerData () {
         console.log('SUCCESSFUL GET', response);
         //render goes here  <------------------
     }).catch(function (response) {
-        alert('I\'m broken :(');
+        alert('I\'m broken :( cannot GET mathHistory');
     })
 } //end getServerData 'GET'
 
+//function to post inputs to server.
 function postToServer() {
     $.ajax({
         type: 'POST',
@@ -26,6 +27,10 @@ function postToServer() {
             mathProblem: '' ///need to add input handle here
         }
     }).then(function (response) {
-//stopped here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        console.log('SUCCESSFUL POST', response);
+        //getServerData function here
+        //empty input function here!
+    }).catch(function(response) {
+        alert('I\'m broken, cannot POST mathProblem to server')
     })
 } //end postToServer 'POST'
