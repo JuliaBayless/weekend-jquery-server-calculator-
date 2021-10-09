@@ -10,6 +10,22 @@
     <title>Server Calculator</title>
 </head>
 <body>
-    <h1>Sever Calculator</h1>
+    <h1>Server Calculator</h1>
+
+    <input type="number" id="firstValue">
+    <select id="selector">
+        <option hidden selected disabled id="selector"></option>
+        <option id="add">+</option>
+        <option id="subtract">-</option>
+        <option id="divide">/</option>
+        <option id="multiply">*</option>
+    </select>
+    <input type="number" id="secondValue">
+    <button id='submitBtn'>=</button>
+    <button id='clearBtn'>C</button>
+    <h2 id="answer">ANSWER</h2>
+    <ul> 
+        <li>FIRSTVALUE + SECONDVALUE = ANSWER</li>
+    </ul>
 </body>
 </html>
