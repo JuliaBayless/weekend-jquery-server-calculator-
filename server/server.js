@@ -16,24 +16,24 @@ let totalValue = 0
 // let calculator = require('./modules/calculator');
 // let valueArray = require('./modules/value')
 
-function calculator() {
-    if (mathProblems.op === '+') {
-        totalValue = mathProblem.firstValue + mathProblem.secondValue
-        return totalValue
-    } else if (mathProblems.op === '-') {
-        totalValue = mathProblem.firstValue - mathProblem.secondValue
-        return totalValue
-    } else if (mathProblems.op === '*') {
-        totalValue = mathProblem.firstValue * mathProblem.secondValue
-        return totalValue
-    } else if (mathProblems.operator === '/') {
-        totalValue = mathProblem.firstValue / mathProblem.secondValue
-        return totalValue
+function calculator(math) {
+
+    if (math.op === '+') {
+        math.totalValue = Number(math.firstValue) + Number(math.secondValue)
+        
+    } else if (math.op === '-') {
+        math.totalValue = math.firstValue - math.secondValue
+      
+    } else if (math.op === '*') {
+        math.totalValue = math.firstValue * math.secondValue
+    
+    } else if (math.op === '/') {
+        math.totalValue = math.firstValue / math.secondValue
     }
+    mathHistory.push(math)
 }
 
 console.log(totalValue);
-
 
 
 //APP and POST routes
@@ -43,12 +43,20 @@ app.get('/mathHistory', (req, res) => {
 
 //push post data into mathHistory
 app.post('/mathHistory', (req, res) => {
-    let mathProblems = req.body;
-    mathHistory.push(mathProblems);
-    calculator(mathProblems);
-    console.log('pushed into mathHistory array', mathHistory);
+    // let mathProblem = req.body;
+    calculator(req.body)
+    // mathHistory.unshift({
+    //     firstValue: req.body.firstValue,
+    //     secondValue: req.body.secondValue,
+    //     op: req.body.op,
+    //     result: calculator(req.body)
+    // })
+    console.log('unshifted into mathHistory array', mathHistory);
     res.sendStatus(201);
 })
+
+console.log(totalValue);
+
 
 app.get('/totalValue', (req, res) => {
     res.send(totalValue);

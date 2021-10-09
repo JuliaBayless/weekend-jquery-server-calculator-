@@ -40,7 +40,7 @@ function postToServer() {
     $.ajax({
         type: 'POST',
         url: '/mathHistory',
-        data: {mathProblem}      //need to add input handle here
+        data: {mathProblem: mathProblem}     //need to add input handle here
     }).then(function (response) {
         console.log('SUCCESSFUL POST', response);
         //getServerData function here
