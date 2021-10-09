@@ -1,5 +1,3 @@
-const mathHistory = [
-    {mathProblem: '5 + 7'}
-];
+const mathHistory = [];
 
 module.exports = mathHistory;
