@@ -43,15 +43,7 @@ app.get('/mathHistory', (req, res) => {
 
 //push post data into mathHistory
 app.post('/mathHistory', (req, res) => {
-    // let mathProblem = req.body;
     calculator(req.body)
-    // mathHistory.unshift({
-    //     firstValue: req.body.firstValue,
-    //     secondValue: req.body.secondValue,
-    //     op: req.body.op,
-    //     result: calculator(req.body)
-    // })
-    console.log('unshifted into mathHistory array', mathHistory);
     res.sendStatus(201);
 })
 
@@ -62,14 +54,6 @@ app.get('/totalValue', (req, res) => {
     res.send(totalValue);
 })
 
-//push post data into mathHistory
-// app.post('/totalValue', (req, res) => {
-//     let value = req.body;
-//     mathHistory.push(mathProblems);
-//     calculator(mathProblems);
-//     console.log('pushed into mathHistory array', mathHistory);
-//     res.sendStatus(201);
-// })
 
 
 

@@ -1,13 +1,13 @@
 User Interactions
 
-[ ] two inputs for two different values
-[ ] selector for mathematical
+[X] two inputs for two different values
+[X] selector for mathematical
     [ ] Addition
     [ ] Subtraction
     [ ] Multiplication
     [ ] Division
-[ ] submit || '=' button
-[ ] 'C' btn to clear input fields
+[X] submit || '=' button
+[X] 'C' btn to clear input fields
 
 [X] setup files
 
