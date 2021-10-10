@@ -1,8 +1,9 @@
 $(readyNow);
 
-//math operator variable to be sent in .op
+//math operator variable to be sent in data.op
 let operator = ''
 
+//ready on page load
 function readyNow() {
     console.log('JQ locked and loaded!');
     $(`.selectorBtn`).on(`click`, selector)
@@ -39,7 +40,7 @@ function postToServer() {
             firstValue: $(`#firstValue`).val(),
             secondValue: $(`#secondValue`).val(),
             op: operator,
-        }   
+        }
     }).then(function (response) {
         console.log('SUCCESSFUL POST', response);
         getServerData();
@@ -57,15 +58,16 @@ function emptyInputs() {
 
 //render to DOM
 function renderToDOM(mathProblems) {
-   //empty DOM
+    //empty DOM
     $(`ul`).empty();
 
     //start loop
-    for ( let problem of mathProblems) {
-        $(`#answer`).text(problem.totalValue)
+    for (let problem of mathProblems) {
         $(`ul`).append(`
         <li>${problem.firstValue} ${problem.op} ${problem.secondValue} = ${problem.totalValue}</li>
         `)
+        $(`#answer`).html(problem.totalValue)
     } //end loop
+
 
 } //end render function 

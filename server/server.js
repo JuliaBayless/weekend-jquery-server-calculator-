@@ -12,25 +12,30 @@ app.use(express.static('server/public'));
 //node path to grab array from mathHistory file
 let mathHistory = require('./modules/mathHistoryArray');
 console.log(mathHistory);
-let totalValue = 0
+let totalValue = 0;
 // let calculator = require('./modules/calculator');
-// let valueArray = require('./modules/value')
 
+//server side calculator
 function calculator(math) {
 
-    if (math.op === '+') {
-        math.totalValue = Number(math.firstValue) + Number(math.secondValue)
-        
-    } else if (math.op === '-') {
-        math.totalValue = math.firstValue - math.secondValue
-      
-    } else if (math.op === '*') {
-        math.totalValue = math.firstValue * math.secondValue
-    
-    } else if (math.op === '/') {
-        math.totalValue = math.firstValue / math.secondValue
+    switch (math.op) {
+        case '+':
+            math.totalValue = Number(math.firstValue) + Number(math.secondValue)
+            break;
+        case '-':
+            math.totalValue = math.firstValue - math.secondValue
+            break;
+        case '*':
+            math.totalValue = math.firstValue * math.secondValue
+            break;
+        case '/':
+            math.totalValue = math.firstValue / math.secondValue
+            break;
+        default:
+            alert('Calculator error')
+            break;
     }
-    mathHistory.push(math)
+    mathHistory.push(math);
 }
 
 console.log(totalValue);
@@ -43,19 +48,11 @@ app.get('/mathHistory', (req, res) => {
 
 //push post data into mathHistory
 app.post('/mathHistory', (req, res) => {
-    calculator(req.body)
+    calculator(req.body);
     res.sendStatus(201);
 })
 
 console.log(totalValue);
-
-
-app.get('/totalValue', (req, res) => {
-    res.send(totalValue);
-})
-
-
-
 
 //listen cue
 app.listen(PORT, () => {
